@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+      <center><p style="font-size: 20px;">Matches Summary</p></center>
+      <!-- <img src="/static/mainEl.jpg" class="myimg"> -->
+      <table class="myTable" style="width: 100%">
+      <!-- table header -->
+      {% if display_data %}
+      <tr>
+        {% for key in display_data[0] %}
+        <th> {{ key }} </th>
+        {% endfor %}
+      </tr>
+      {% endif %}
+
+      <!-- table rows -->
+      {% for dict_item in display_data %}
+      <tr>
+        {% for value in dict_item.values() %}
+        <td style="text-align: center;"> {{ value }} </td>
+        {% endfor %}
+        </tr>
+      {% endfor %}
+      </table>
+</body>
+</html>
